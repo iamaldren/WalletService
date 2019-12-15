@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+package com.aldren.server.wallet.grpc;
+
+service WalletService {
+    rpc deposit(UserRequest) returns (UserResponse);
+
+    rpc withdraw(UserRequest) returns (UserResponse);
+
+    rpc checkBalance(User) returns (Balance);
+}
+
+message User {
+    string userId = 1;
+}
+
+message Money {
+    double amount = 1;
+    string currency = 2;
+}
+
+message UserRequest {
+    User user = 1;
+    Money money = 2;
+}
+
+message Balance {
+    User user = 1;
+    repeated Money money = 2;
+}
+
+message UserResponse {
+    string error = 1;
+}
