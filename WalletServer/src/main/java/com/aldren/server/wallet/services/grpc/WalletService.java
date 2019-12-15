@@ -1,4 +1,4 @@
-package com.aldren.server.wallet.service.grpc;
+package com.aldren.server.wallet.services.grpc;
 
 import com.aldren.server.wallet.grpc.*;
 import io.grpc.stub.StreamObserver;

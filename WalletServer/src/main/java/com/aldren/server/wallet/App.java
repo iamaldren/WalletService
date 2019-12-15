@@ -1,6 +1,6 @@
 package com.aldren.server.wallet;
 
-import com.aldren.server.wallet.service.grpc.WalletService;
+import com.aldren.server.wallet.services.grpc.WalletService;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
