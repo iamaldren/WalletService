@@ -8,16 +8,14 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table(name = "Transactions")
+@Table(name = "transactions")
 public class ETransactions {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected int id;
-    @Column(name = "user_id")
-    private int userId;
-    @Column(name = "currency_id")
-    private int currencyId;
+    private Long id;
+    private Long userId;
+    private Long currencyId;
     private double amount;
     private String transactionType;
     private String transactionDate;

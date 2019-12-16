@@ -3,20 +3,17 @@ package com.aldren.server.wallet.entities;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "Money")
+@Table(name = "money")
 public class EMoney extends BaseEntity {
 
-    @Column(name = "user_id")
-    private int userId;
-    @Column(name = "currency_id")
-    private int currencyId;
+    private Long userId;
+    private Long currencyId;
     private double amount;
 
 }

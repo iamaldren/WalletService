@@ -9,7 +9,7 @@ import javax.persistence.Table;
 @Getter
 @Setter
 @Entity
-@Table(name = "Currencies")
+@Table(name = "currencies")
 public class ECurrencies extends BaseEntity {
 
     private String currencyCode;

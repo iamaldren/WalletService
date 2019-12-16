@@ -9,7 +9,7 @@ import javax.persistence.Table;
 @Getter
 @Setter
 @Entity
-@Table(name = "Users")
+@Table(name = "users")
 public class EUsers extends BaseEntity {
 
     private String userId;
