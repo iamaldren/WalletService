@@ -2,8 +2,10 @@ package com.aldren.server.wallet.entities;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -18,6 +20,7 @@ public class ETransactions {
     private Long currencyId;
     private double amount;
     private String transactionType;
-    private String transactionDate;
+    @CreationTimestamp
+    protected LocalDateTime transactionDate;
 
 }
