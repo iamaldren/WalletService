@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+package com.aldren.server.wallet.grpc;
+
+service WalletService {
+    rpc deposit(WalletRequest) returns (Empty);
+
+    rpc withdraw(WalletRequest) returns (Empty);
+
+    rpc checkBalance(User) returns (Balance);
+
+    rpc checkTransactions(User) returns (Transactions);
+}
+
+service UserService {
+    rpc createUser(User) returns (Empty);
+
+    rpc deleteUser(User) returns (Empty);
+}
+
+service CurrencyService {
+    rpc createCurrency(Currency) returns (Empty);
+
+    rpc deleteCurrency(Currency) returns (Empty);
+}
+
+message User {
+    string userId = 1;
+}
+
+message Money {
+    double amount = 1;
+    string currency = 2;
+}
+
+message WalletRequest {
+    User user = 1;
+    Money money = 2;
+}
+
+message Balance {
+    User user = 1;
+    repeated Money money = 2;
+}
+
+message Empty {
+}
+
+message Currency {
+    string code = 1;
+    string name = 2;
+}
+
+message Transaction {
+    double amount = 1;
+    string currency = 2;
+    string type = 3;
+    string date = 4;
+}
+
+message Transactions {
+    User user = 1;
+    repeated Transaction transaction = 2;
+}
