@@ -2,26 +2,49 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9bf6f136-dff3-4b10-9eef-c75f1e112193" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileChanges/last-build.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/5.2.1/gc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/vcs-1/gc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/proto/WalletService.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/proto/WalletService.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/proto/WalletService.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/protoGen/com/aldren/server/wallet/grpc/Balance.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/protoGen/com/aldren/server/wallet/grpc/BalanceOrBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/protoGen/com/aldren/server/wallet/grpc/Currency.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/protoGen/com/aldren/server/wallet/grpc/CurrencyOrBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/protoGen/com/aldren/server/wallet/grpc/CurrencyServiceGrpc.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/protoGen/com/aldren/server/wallet/grpc/Empty.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/protoGen/com/aldren/server/wallet/grpc/EmptyOrBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/protoGen/com/aldren/server/wallet/grpc/Money.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/protoGen/com/aldren/server/wallet/grpc/MoneyOrBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/protoGen/com/aldren/server/wallet/grpc/Transaction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/protoGen/com/aldren/server/wallet/grpc/TransactionOrBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/protoGen/com/aldren/server/wallet/grpc/Transactions.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/protoGen/com/aldren/server/wallet/grpc/TransactionsOrBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/protoGen/com/aldren/server/wallet/grpc/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/protoGen/com/aldren/server/wallet/grpc/UserOrBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/protoGen/com/aldren/server/wallet/grpc/UserServiceGrpc.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/protoGen/com/aldren/server/wallet/grpc/WalletRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/protoGen/com/aldren/server/wallet/grpc/WalletRequestOrBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/protoGen/com/aldren/server/wallet/grpc/WalletServiceGrpc.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/protoGen/com/aldren/server/wallet/grpc/WalletServiceOuterClass.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WalletServer/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../WalletServer/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../WalletServer/src/main/java/com/aldren/server/wallet/repositories/MoneyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../WalletServer/src/main/java/com/aldren/server/wallet/repositories/MoneyRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../WalletServer/src/main/java/com/aldren/server/wallet/services/WalletService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../WalletServer/src/main/java/com/aldren/server/wallet/services/WalletService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WalletServer/src/main/proto/WalletService.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WalletServer/src/main/protoGen/com/aldren/server/wallet/grpc/Balance.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WalletServer/src/main/protoGen/com/aldren/server/wallet/grpc/BalanceOrBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WalletServer/src/main/protoGen/com/aldren/server/wallet/grpc/Money.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WalletServer/src/main/protoGen/com/aldren/server/wallet/grpc/MoneyOrBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WalletServer/src/main/protoGen/com/aldren/server/wallet/grpc/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WalletServer/src/main/protoGen/com/aldren/server/wallet/grpc/UserOrBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WalletServer/src/main/protoGen/com/aldren/server/wallet/grpc/UserRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WalletServer/src/main/protoGen/com/aldren/server/wallet/grpc/UserRequestOrBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WalletServer/src/main/protoGen/com/aldren/server/wallet/grpc/UserResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WalletServer/src/main/protoGen/com/aldren/server/wallet/grpc/UserResponseOrBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WalletServer/src/main/protoGen/com/aldren/server/wallet/grpc/WalletServiceGrpc.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WalletServer/src/main/protoGen/com/aldren/server/wallet/grpc/WalletServiceOuterClass.java" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,6 +69,7 @@
   <component name="ProjectId" id="1V6ysJFcmzHADLFef5uNIxW8Yxl" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
   </component>
   <component name="RunDashboard">
@@ -78,7 +102,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

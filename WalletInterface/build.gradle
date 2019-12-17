@@ -28,7 +28,7 @@ dependencies {
     compile 'javax.annotation:javax.annotation-api:1.3.2'
 }
 
-group = 'com.aldren.interface.wallet'
+group = 'com.aldren.wallet'
 version = '1.0.0'
 description = 'WalletInterface'
 sourceCompatibility = '1.9'
