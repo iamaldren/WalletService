@@ -2,8 +2,9 @@ plugins {
     id 'java'
     id 'maven-publish'
     id "io.freefair.lombok" version "4.1.2"
-    id 'org.springframework.boot' version '2.2.2.RELEASE'
+    id 'org.springframework.boot' version '2.1.5.RELEASE'
     id 'io.spring.dependency-management' version '1.0.7.RELEASE'
+    id "org.flywaydb.flyway" version "5.2.4"
 }
 
 repositories {
@@ -14,14 +15,25 @@ repositories {
 }
 
 dependencies {
-    compile 'org.springframework.boot:spring-boot-starter:2.2.2.RELEASE'
-    compile 'org.springframework.boot:spring-boot-starter-data-jpa:2.2.2.RELEASE'
+    implementation 'org.springframework.boot:spring-boot-dependencies:2.1.5.RELEASE'
+    compile 'org.springframework.boot:spring-boot-starter:2.1.5.RELEASE'
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa:2.1.5.RELEASE'
     compile 'javax.annotation:javax.annotation-api:1.3.2'
     compile 'mysql:mysql-connector-java:8.0.18'
-    compile "org.flywaydb:flyway-core:6.1.1"
+    compile "org.flywaydb:flyway-core:5.2.4"
     compile 'io.github.lognet:grpc-spring-boot-starter:3.5.0'
     compile 'com.aldren.wallet:WalletInterface:1.0.0'
-    testCompile 'junit:junit:4.11'
+    testCompile 'ch.vorburger.mariaDB4j:mariaDB4j:2.2.3'
+    testCompile 'org.mariadb.jdbc:mariadb-java-client:2.3.0'
+    testCompile "io.grpc:grpc-testing:1.25.0"
+    testCompile "org.junit.jupiter:junit-jupiter-api:5.4.2"
+    testCompile "org.junit.jupiter:junit-jupiter-params:5.4.2"
+    testRuntime "org.junit.jupiter:junit-jupiter-engine:5.4.2"
+    testCompile group: 'org.junit.platform', name: 'junit-platform-commons', version: '1.4.2'
+    testCompile group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.4.2'
+    testImplementation('org.springframework.boot:spring-boot-starter-test:2.1.5.RELEASE') {
+        exclude group: 'junit', module: 'junit' //by both name and group
+    }
 }
 
 group = 'com.aldren.server.wallet'
@@ -39,4 +51,23 @@ publishing {
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+    environment SPRING_PROFILES_ACTIVE: environment.SPRING_PROFILES_ACTIVE ?: "test"
+}
+
+bootRun {
+    environment SPRING_PROFILES_ACTIVE: environment.SPRING_PROFILES_ACTIVE ?: "local"
+}
+
+flyway {
+    url = 'jdbc:mysql://localhost:3307'
+    user = 'root'
+    password = ''
+    schemas = ['wallet']
 }
