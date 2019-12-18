@@ -27,25 +27,23 @@ import java.util.stream.Collectors;
 @GRpcService
 public class WalletService extends WalletServiceGrpc.WalletServiceImplBase {
 
-    @Autowired
-    private CurrenciesRepository currencies;
-
-    @Autowired
-    private MoneyRepository money;
-
-    @Autowired
-    private TransactionsRepository transactions;
-
-    @Autowired
-    private UsersRepository users;
-
     private static final String CREDIT = "CR";
     private static final String DEBIT = "DR";
+    @Autowired
+    private CurrenciesRepository currencies;
+    @Autowired
+    private MoneyRepository money;
+    @Autowired
+    private TransactionsRepository transactions;
+    @Autowired
+    private UsersRepository users;
 
     @Override
     public void deposit(WalletRequest request, StreamObserver<Empty> responseObserver) {
         try {
-            currencies.findByCurrencyCode(request.getMoney().getCurrency()).ifPresentOrElse(currency -> processByUser(request, currency, CREDIT), () -> { throw new CurrencyNotExistsException(); });
+            currencies.findByCurrencyCode(request.getMoney().getCurrency()).ifPresentOrElse(currency -> processByUser(request, currency, CREDIT), () -> {
+                throw new CurrencyNotExistsException();
+            });
             responseObserver.onNext(Empty.newBuilder().build());
             responseObserver.onCompleted();
         } catch (WalletException e) {
@@ -56,7 +54,9 @@ public class WalletService extends WalletServiceGrpc.WalletServiceImplBase {
     @Override
     public void withdraw(WalletRequest request, StreamObserver<Empty> responseObserver) {
         try {
-            currencies.findByCurrencyCode(request.getMoney().getCurrency()).ifPresentOrElse(currency -> processByUser(request, currency, DEBIT), () -> { throw new CurrencyNotExistsException(); });
+            currencies.findByCurrencyCode(request.getMoney().getCurrency()).ifPresentOrElse(currency -> processByUser(request, currency, DEBIT), () -> {
+                throw new CurrencyNotExistsException();
+            });
             responseObserver.onNext(Empty.newBuilder().build());
             responseObserver.onCompleted();
         } catch (InsufficientFundsException e) {
@@ -77,21 +77,25 @@ public class WalletService extends WalletServiceGrpc.WalletServiceImplBase {
 
                 balanceStreamObserver.onNext(balance);
                 balanceStreamObserver.onCompleted();
-            }, () -> { throw new UserDoesNotExistsException(); });
+            }, () -> {
+                throw new UserDoesNotExistsException();
+            });
         } catch (UserDoesNotExistsException e) {
             balanceStreamObserver.onError(Status.NOT_FOUND.withDescription(e.getMessage()).withCause(e).asException());
         }
     }
 
     private void processByUser(WalletRequest request, ECurrencies currency, String action) {
-        users.findByUserId(request.getUser().getUserId()).ifPresentOrElse(user -> processByMoney(request, user, currency, action), () -> { throw new UserDoesNotExistsException(); });
+        users.findByUserId(request.getUser().getUserId()).ifPresentOrElse(user -> processByMoney(request, user, currency, action), () -> {
+            throw new UserDoesNotExistsException();
+        });
     }
 
     private void processByMoney(WalletRequest request, EUsers user, ECurrencies currency, String action) {
         double amountFromRequest = request.getMoney().getAmount();
 
         money.findByUserIdAndCurrencyId(user.getId(), currency.getId()).ifPresentOrElse(amount -> {
-            if(action.equals(DEBIT) && amount.getAmount() < amountFromRequest) {
+            if (action.equals(DEBIT) && amount.getAmount() < amountFromRequest) {
                 throw new InsufficientFundsException();
             }
             updateBalance(amountFromRequest, action, amount);
@@ -116,7 +120,7 @@ public class WalletService extends WalletServiceGrpc.WalletServiceImplBase {
 
     private void updateBalance(double amount, String action, EMoney money) {
         double newAmount = 0;
-        switch(action) {
+        switch (action) {
             case CREDIT:
                 newAmount = amount + money.getAmount();
                 break;

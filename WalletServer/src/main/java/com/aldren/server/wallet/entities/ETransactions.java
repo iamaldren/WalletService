@@ -13,6 +13,8 @@ import java.time.LocalDateTime;
 @Table(name = "transactions")
 public class ETransactions {
 
+    @CreationTimestamp
+    protected LocalDateTime transactionDate;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,7 +22,5 @@ public class ETransactions {
     private Long currencyId;
     private double amount;
     private String transactionType;
-    @CreationTimestamp
-    protected LocalDateTime transactionDate;
 
 }
