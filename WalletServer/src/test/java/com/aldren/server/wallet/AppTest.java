@@ -1,6 +1,6 @@
 package com.aldren.server.wallet;
 
-import com.aldren.server.wallet.services.WalletService;
+import com.aldren.server.wallet.services.WalletServiceServer;
 import com.aldren.wallet.grpc.*;
 import io.grpc.internal.testing.StreamRecorder;
 import org.junit.jupiter.api.MethodOrderer;
@@ -23,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 public class AppTest {
 
     @Autowired
-    private WalletService service;
+    private WalletServiceServer service;
 
     @Test
     @Order(1)

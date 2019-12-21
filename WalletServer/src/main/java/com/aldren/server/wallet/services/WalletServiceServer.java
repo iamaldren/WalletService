@@ -16,7 +16,7 @@ import com.aldren.wallet.grpc.*;
 import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 import lombok.extern.slf4j.Slf4j;
-import org.lognet.springboot.grpc.GRpcService;
+import net.devh.boot.grpc.server.service.GrpcService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -24,8 +24,8 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @Slf4j
-@GRpcService
-public class WalletService extends WalletServiceGrpc.WalletServiceImplBase {
+@GrpcService
+public class WalletServiceServer extends WalletServiceGrpc.WalletServiceImplBase {
 
     private static final String CREDIT = "CR";
     private static final String DEBIT = "DR";
