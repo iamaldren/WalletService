@@ -10,3 +10,11 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
+grpc:
+  port: 6565
+eureka:
+  instance:
+    nonSecurePort: ${grpc.port}
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.host:localhost}:${eureka.port:8761}/eureka/
