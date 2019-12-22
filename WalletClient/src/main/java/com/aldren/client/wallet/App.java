@@ -25,7 +25,7 @@ public class App {
         int threadNum = Integer.valueOf(System.getProperty("wallet.user.threads"));
         int roundNum = Integer.valueOf(System.getProperty("wallet.user.rounds"));
 
-        for(int i = 0; i < threadNum; i++) {
+        for (int i = 0; i < threadNum; i++) {
             dispatcher.executeRounds(user, roundNum);
         }
     }

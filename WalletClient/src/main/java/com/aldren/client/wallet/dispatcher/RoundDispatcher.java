@@ -17,10 +17,10 @@ public class RoundDispatcher {
 
     @Async
     public void executeRounds(String user, int roundNum) {
-        for(int i = 0; i < roundNum; i++) {
+        for (int i = 0; i < roundNum; i++) {
             int score = random.nextInt(roundNum);
 
-            switch(score) {
+            switch (score) {
                 case 1:
                     walletServiceClient.roundB(user);
                     break;

@@ -19,13 +19,11 @@ import javax.annotation.PostConstruct;
 @Service
 public class WalletServiceClientImpl implements WalletServiceClient {
 
-    @Autowired
-    private EurekaClient eurekaClient;
-
-    private WalletServiceGrpc.WalletServiceBlockingStub walletService;
-
     private static final String ROUND_A = "A";
     private static final String ROUND_C = "C";
+    @Autowired
+    private EurekaClient eurekaClient;
+    private WalletServiceGrpc.WalletServiceBlockingStub walletService;
 
     @PostConstruct
     public void init() {
@@ -132,7 +130,7 @@ public class WalletServiceClientImpl implements WalletServiceClient {
                             .build())
                     .build());
         } catch (StatusRuntimeException e) {
-            if(e.getLocalizedMessage().contains("Unknown User")) {
+            if (e.getLocalizedMessage().contains("Unknown User")) {
                 throw new UserDoesNotExistsException(e.getLocalizedMessage());
             } else {
                 log.info(String.format("Round A(%1s): %2s", user, e.getLocalizedMessage()));
@@ -152,7 +150,7 @@ public class WalletServiceClientImpl implements WalletServiceClient {
                             .build())
                     .build());
         } catch (StatusRuntimeException e) {
-            if(e.getLocalizedMessage().contains("Unknown User")) {
+            if (e.getLocalizedMessage().contains("Unknown User")) {
                 throw new UserDoesNotExistsException(e.getLocalizedMessage());
             } else {
                 log.info(String.format("Round A(%1s): %2s", user, e.getLocalizedMessage()));
