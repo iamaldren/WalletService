@@ -1,6 +1,6 @@
 package com.aldren.client.wallet;
 
-import com.aldren.client.wallet.services.WalletServiceClient;
+import com.aldren.client.wallet.dispatcher.RoundDispatcher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,7 +13,7 @@ import javax.annotation.PostConstruct;
 public class App {
 
     @Autowired
-    private WalletServiceClient client;
+    private RoundDispatcher dispatcher;
 
     public static void main(String[] args) {
         SpringApplication.run(App.class, args);
@@ -21,11 +21,13 @@ public class App {
 
     @PostConstruct
     public void execute() {
-        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + System.getProperty("wallet.user"));
-//        client.roundB("aldrenbobiles");
-//        client.roundA("aldrenbobiles");
-//        client.roundC("aldrenbobiles");
-//        client.roundA("aldrenbobiles");
+        String user = System.getProperty("wallet.user");
+        int threadNum = Integer.valueOf(System.getProperty("wallet.user.threads"));
+        int roundNum = Integer.valueOf(System.getProperty("wallet.user.rounds"));
+
+        for(int i = 0; i < threadNum; i++) {
+            dispatcher.executeRounds(user, roundNum);
+        }
     }
 
 }
