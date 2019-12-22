@@ -33,6 +33,7 @@ dependencyManagement {
 
 dependencies {
     compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-server')
+    compile('org.springframework.cloud:spring-cloud-config-client')
     compile('org.glassfish.jaxb:jaxb-runtime')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
