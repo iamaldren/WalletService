@@ -21,7 +21,11 @@ public class App {
 
     @PostConstruct
     public void execute() {
-        client.roundA("aldrenbobiles");
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + System.getProperty("wallet.user"));
+//        client.roundB("aldrenbobiles");
+//        client.roundA("aldrenbobiles");
+//        client.roundC("aldrenbobiles");
+//        client.roundA("aldrenbobiles");
     }
 
 }
