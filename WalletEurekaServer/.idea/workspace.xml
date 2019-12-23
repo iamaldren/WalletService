@@ -2,22 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="50751d7e-dc05-458e-91d9-9bab6fda058a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/WalletService.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WalletServer/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../WalletServer/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../WalletClient/src/main/java/com/aldren/client/wallet/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../WalletClient/src/main/java/com/aldren/client/wallet/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../WalletClient/src/main/java/com/aldren/client/wallet/dispatcher/RoundDispatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/../WalletClient/src/main/java/com/aldren/client/wallet/dispatcher/RoundDispatcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../WalletClient/src/main/java/com/aldren/client/wallet/services/impl/WalletServiceClientImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../WalletClient/src/main/java/com/aldren/client/wallet/services/impl/WalletServiceClientImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WalletServer/src/main/resources/application-local.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../WalletServer/src/main/resources/application-local.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WalletServer/src/test/resources/db/migration/V3__insert_default_data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../WalletServer/src/test/resources/db/migration/V3__insert_default_data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose.yml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
