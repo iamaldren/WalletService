@@ -20,6 +20,7 @@ import javax.annotation.PostConstruct;
 public class WalletServiceClientImpl implements WalletServiceClient {
 
     private static final String ROUND_A = "A";
+    private static final String ROUND_B = "B";
     private static final String ROUND_C = "C";
     @Autowired
     private EurekaClient eurekaClient;
@@ -41,23 +42,23 @@ public class WalletServiceClientImpl implements WalletServiceClient {
             log.info(String.format("Round A::Executing for user %s.", user));
 
             log.info(String.format("Round A(%s): Depositing USD 100.", user));
-            deposit(user, 100d, CurrencyConstants.CURRENCY_USD);
+            deposit(user, 100d, CurrencyConstants.CURRENCY_USD, ROUND_A);
 
             log.info(String.format("Round A(%s): Withdrawing USD 200.", user));
-            withdraw(user, 200d, CurrencyConstants.CURRENCY_USD);
+            withdraw(user, 200d, CurrencyConstants.CURRENCY_USD, ROUND_A);
 
             log.info(String.format("Round A(%s): Depositing EUR 100.", user));
-            deposit(user, 100d, CurrencyConstants.CURRENCY_EUR);
+            deposit(user, 100d, CurrencyConstants.CURRENCY_EUR, ROUND_A);
 
             checkBalance(user, ROUND_A);
 
             log.info(String.format("Round A(%s): Withdrawing USD 100.", user));
-            withdraw(user, 100d, CurrencyConstants.CURRENCY_USD);
+            withdraw(user, 100d, CurrencyConstants.CURRENCY_USD, ROUND_A);
 
             checkBalance(user, ROUND_A);
 
             log.info(String.format("Round A(%s): Withdrawing USD 100.", user));
-            withdraw(user, 100d, CurrencyConstants.CURRENCY_USD);
+            withdraw(user, 100d, CurrencyConstants.CURRENCY_USD, ROUND_A);
         } catch (UserDoesNotExistsException e) {
             log.info(String.format("Round A(%1s): %2s", user, e.getLocalizedMessage()));
             log.info("Exiting Round A.");
@@ -69,20 +70,20 @@ public class WalletServiceClientImpl implements WalletServiceClient {
         try {
             log.info(String.format("Round B::Executing for user %s.", user));
 
-            log.info(String.format("Round B(%s): Depositing GBP 100.", user));
-            withdraw(user, 100d, CurrencyConstants.CURRENCY_GBP);
+            log.info(String.format("Round B(%s): Withdrawing GBP 100.", user));
+            withdraw(user, 100d, CurrencyConstants.CURRENCY_GBP, ROUND_B);
 
             log.info(String.format("Round B(%s): Depositing GBP 300.", user));
-            deposit(user, 300d, CurrencyConstants.CURRENCY_GBP);
+            deposit(user, 300d, CurrencyConstants.CURRENCY_GBP, ROUND_B);
 
-            log.info(String.format("Round B(%s): Depositing GBP 100.", user));
-            withdraw(user, 100d, CurrencyConstants.CURRENCY_GBP);
+            log.info(String.format("Round B(%s): Withdrawing GBP 100.", user));
+            withdraw(user, 100d, CurrencyConstants.CURRENCY_GBP, ROUND_B);
 
-            log.info(String.format("Round B(%s): Depositing GBP 100.", user));
-            withdraw(user, 100d, CurrencyConstants.CURRENCY_GBP);
+            log.info(String.format("Round B(%s): Withdrawing GBP 100.", user));
+            withdraw(user, 100d, CurrencyConstants.CURRENCY_GBP, ROUND_B);
 
-            log.info(String.format("Round B(%s): Depositing GBP 100.", user));
-            withdraw(user, 100d, CurrencyConstants.CURRENCY_GBP);
+            log.info(String.format("Round B(%s): Withdrawing GBP 100.", user));
+            withdraw(user, 100d, CurrencyConstants.CURRENCY_GBP, ROUND_B);
         } catch (UserDoesNotExistsException e) {
             log.info(String.format("Round B(%1s): %2s", user, e.getLocalizedMessage()));
             log.info("Exiting Round B.");
@@ -97,21 +98,21 @@ public class WalletServiceClientImpl implements WalletServiceClient {
             checkBalance(user, ROUND_C);
 
             log.info(String.format("Round C(%s): Depositing USD 100.", user));
-            deposit(user, 100d, CurrencyConstants.CURRENCY_USD);
+            deposit(user, 100d, CurrencyConstants.CURRENCY_USD, ROUND_C);
 
             log.info(String.format("Round C(%s): Depositing USD 100.", user));
-            deposit(user, 100d, CurrencyConstants.CURRENCY_USD);
+            deposit(user, 100d, CurrencyConstants.CURRENCY_USD, ROUND_C);
 
             log.info(String.format("Round C(%s): Withdrawing USD 100.", user));
-            withdraw(user, 100d, CurrencyConstants.CURRENCY_USD);
+            withdraw(user, 100d, CurrencyConstants.CURRENCY_USD, ROUND_C);
 
             log.info(String.format("Round C(%s): Depositing USD 100.", user));
-            deposit(user, 100d, CurrencyConstants.CURRENCY_USD);
+            deposit(user, 100d, CurrencyConstants.CURRENCY_USD, ROUND_C);
 
             checkBalance(user, ROUND_C);
 
             log.info(String.format("Round C(%s): Withdrawing USD 200.", user));
-            withdraw(user, 200d, CurrencyConstants.CURRENCY_USD);
+            withdraw(user, 200d, CurrencyConstants.CURRENCY_USD, ROUND_C);
 
             checkBalance(user, ROUND_C);
         } catch (UserDoesNotExistsException e) {
@@ -120,7 +121,7 @@ public class WalletServiceClientImpl implements WalletServiceClient {
         }
     }
 
-    private void withdraw(String user, double amount, String currency) {
+    private synchronized void withdraw(String user, double amount, String currency, String round) {
         try {
             walletService.withdraw(WalletRequest.newBuilder()
                     .setUser(User.newBuilder().setUserId(user).build())
@@ -133,12 +134,12 @@ public class WalletServiceClientImpl implements WalletServiceClient {
             if (e.getLocalizedMessage().contains("Unknown User")) {
                 throw new UserDoesNotExistsException(e.getLocalizedMessage());
             } else {
-                log.info(String.format("Round A(%1s): %2s", user, e.getLocalizedMessage()));
+                log.info(String.format("Round %1s(%2s): %3s", round, user, e.getLocalizedMessage()));
             }
         }
     }
 
-    private void deposit(String user, double amount, String currency) {
+    private synchronized void deposit(String user, double amount, String currency, String round) {
         try {
             walletService.deposit(WalletRequest.newBuilder()
                     .setUser(User.newBuilder()
@@ -153,7 +154,7 @@ public class WalletServiceClientImpl implements WalletServiceClient {
             if (e.getLocalizedMessage().contains("Unknown User")) {
                 throw new UserDoesNotExistsException(e.getLocalizedMessage());
             } else {
-                log.info(String.format("Round A(%1s): %2s", user, e.getLocalizedMessage()));
+                log.info(String.format("Round %1s(%2s): %3s", round, user, e.getLocalizedMessage()));
             }
         }
     }
