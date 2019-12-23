@@ -1,10 +1,10 @@
-#WalletService
+# WalletService
 
-##Wallet Interface
+## Wallet Interface
 
 This contains all the gRPC related classes generated from the proto file.
 
-##Wallet Server
+## Wallet Server
 
 This project will be responsible for the actual transaction done by the user.
 
@@ -32,7 +32,7 @@ Currencies:
 - USD
 
 
-##Wallet Client
+## Wallet Client
 
 This project will execute the methods from the Wallet server based from the given rounds.
 
@@ -46,13 +46,13 @@ It accepts 3 arguments:
 - wallet.user.threads = No. of threads that will be executed per user
 - wallet.user.rounds = No. of rounds that will be executed per thread
 
-##Eureka Server
+## Eureka Server
 
 Used for Service Discovery.
 
-##Getting Started
+## Getting Started
 
-###Docker
+### Docker
 
 The 3 services below can be run thru docker:
 - MySQL
@@ -65,7 +65,7 @@ However, there seems to be an issue when running the Wallet Server in Docker. On
 
 The docker images are already defined in the docker-compose.yml file.
 
-####MySQL
+#### MySQL
 
 The docker image for MySQL included in the compose file already contains all the necessary tables and default data needed.
 
