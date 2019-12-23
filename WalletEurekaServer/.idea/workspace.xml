@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="50751d7e-dc05-458e-91d9-9bab6fda058a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../WalletClient/src/main/java/com/aldren/client/wallet/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../WalletClient/src/main/java/com/aldren/client/wallet/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WalletClient/src/main/java/com/aldren/client/wallet/dispatcher/RoundDispatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/../WalletClient/src/main/java/com/aldren/client/wallet/dispatcher/RoundDispatcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WalletClient/src/main/java/com/aldren/client/wallet/services/impl/WalletServiceClientImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../WalletClient/src/main/java/com/aldren/client/wallet/services/impl/WalletServiceClientImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose.yml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
