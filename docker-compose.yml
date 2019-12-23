@@ -1,0 +1,38 @@
+version: '3.6'
+
+services:
+  mysql:
+    image: 'iamaldrew/iamaldren-mysql'
+    container_name: 'iamaldren-mysql'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    networks:
+      - wallet_service
+  eurekaserver:
+    image: 'iamaldrew/eurekaserver'
+    container_name: 'eurekaserver'
+    ports:
+      - '8761:8761'
+    expose:
+      - '8761'
+    networks:
+      - wallet_service
+  walletServerService:
+    image: 'iamaldrew/iamaldren-walletserver'
+    container_name: 'walletserver'
+    ports:
+      - '6565:6565'
+    expose:
+      - '6565'
+    links:
+      - mysql
+      - eurekaserver
+    networks:
+      - wallet_service
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8761/eureka
+
+networks:
+  wallet_service:
